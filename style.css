@@ -20,10 +20,12 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     font-family: "consolas";
+    top: -20px;
+    position: relative;
 }
 
 .navbar-wrapper{
-    width: 100%;
+    width: 100vw;
     padding: 20px 100px;
     backdrop-filter: blur(10px);
     position: fixed;
@@ -51,17 +53,33 @@ a>img{
     vertical-align: middle;
     width: 80%;
     -webkit-text-stroke: 1px black;
+    font-size: 1.7rem;
 }
 .middle>a{
+    display: inline-block;
     font-family: arial;
     text-decoration: none;
     color: #fff;
-    font-size: 1.7rem;
     font-weight: 500;
-    padding-left: 2.5vw;
+    margin-left: 20px;
     text-transform: uppercase;
+    transition: 1s;   
+    position: relative;
 }
-
+.middle>a::after{
+    content: '';
+    height: 3px;
+    width: 100%;
+    background-color: #291702;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    transition: 0.5s;
+}
+.middle>a:hover::after{
+    width: 100%;
+}
 .right{
     height: 100%;
     display: inline-block;
@@ -71,7 +89,7 @@ a>img{
     -webkit-text-stroke: 1px black;
 }
 button{
-    width: 100%;
+    width: 140px;
     border: 1px solid black;
     outline: 1px solid white;
     height: 8vh;
@@ -81,6 +99,12 @@ button{
     border-radius: 20px;
     cursor: pointer;
     color: white;
+    transition: 1s;
+}
+button:hover{
+    background-color: white;
+    border: 0;
+    outline: 0;
 }
 .center{
     position: relative;
@@ -105,30 +129,97 @@ button{
     top: 25vh;
     left: 20vw;
 }
-.second{
-    top: 107vh;
+.id{
+    font-family: "consolas";
+    background-image: url(Untitled.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 60vh;
     width: 100vw;
-    background-image: url(wkoncu.avif);
+    position: relative;
+    top: -20px;
+}
+.data{
+    position: relative;
+    top: 10vh;
+    height: 80%;
+}
+.data div{
+    position: absolute;
+    top: calc(120px*var(--order));
+    width: 30vw;
+    height: 10vh;
+    left: -40vw;
+    transition: 0.5s;
+}
+.container{
+    position: absolute;
+    top: calc(95px*var(--order)) !important;
+    width: 30vw;
+    height: 10vh;
+}
+.data div p{
+    position: absolute;
+    top: 12px;
+    left: 60px;
+    width: 20vw;
+    font-size: 20px;
+    width: 30vw;
+    transition: 0.5s;
+}
+.data h1{
+    position: absolute;
+    font-size: 60px;
+    left: -50vw;
+    transition: 0.5s;
+}
+.data h4{
+    position: absolute;
+    font-size: 30px;
+    top: 80px;
+    left: -50vw;
+    transition: 0.5s;
+
+}
+.me{
+    height: 80%;
+    position: absolute;
+    right: -40vw;
+    top: 8vh;
+    transition: 1s;
+}
+.second{
+    top: 1560px;
+    height: 60vh;
+    width: 100vw;
+    background-image: url(banner-transformed.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
+    padding-left: 3vw;
+    transition: 1s;
 }
+
 .second>p{
-    position: relative;
-    left: 64vw;
-    top: 8vh;
-    padding-bottom: 2vh;
-    color: #291702;
-    text-transform: uppercase;
-    font-size: 1.6rem;
-    font-weight: 700;
-    font-family: arial;
-    white-space: pre-line;
-    width: 30vw;
+    position: relative;     
+    top: 55vh;
+    visibility: hidden;
+    padding-bottom: 4vh;
+    color: white;
+    font-size: 1.7rem;
+    width: clamp(55ch, 50%, 75ch);
+    text-decoration: none;
+    transition: calc(1s*var(--order));
 }
-.wife{
-    padding-bottom: 3vh;
+
+.second>p:nth-child(2n){
+    left: 47vw;
+}
+.second>p:nth-child(5){
+    padding-top: 6vh;
+    color: aqua;
+    width: 100%;
+    font-size: 2rem;
 }
 .third{
     background-image: url(dsa.png);
@@ -136,7 +227,7 @@ button{
     width: 100vw;
     position: relative;
     height: 50vh;
-    top: 59vh;
+    top: 58vh;
 }
 .ppl{
     width: 15vw;
@@ -154,18 +245,29 @@ button{
     user-select: none;
     text-transform: uppercase;
     font-weight: 500;
-    position: relative;
     text-align: center;
     position: absolute;
-    top: 2vh
-}
-.p1{
-    left: 5vw;
-}
-.p2{
-    left: 35vw;
+    top: 4vh;
+    transition-duration: 1s;
+    left: -70vh;
 }
 
-.p3{
-    left: 65vw;
+
+@media screen and (max-width: 600px){
+    *{
+        padding: 0 !important;
+    }
+    .second>p{
+        font-size: 1rem;
+    }
+    .middle a{
+        font-size: 0.75rem;
+    }
+    .data h4{
+        font-size: 10;
+    }
+    .id img{
+        width: 10vw;
+        height: 10vh;
+    }
 }
